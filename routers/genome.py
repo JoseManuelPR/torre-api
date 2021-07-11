@@ -19,7 +19,7 @@ router.add_api_route("/bios/{username}",
 
 # Search for people in general
 # POST https://search.torre.co/people/_search/?[offset=$offset&size=$size&aggregate=$aggregate]
-router.add_api_route("/bios/_search/{offset}/{size}/{aggregate}",
+router.add_api_route("/bios/_search/",
   GenomeResource.search_bios_by_filters,
   methods=['POST'],
   name="Search for people in general",

@@ -18,7 +18,7 @@ router.add_api_route("/opportunities/{id}",
 
 # Search for jobs in general
 # POST https://search.torre.co/opportunities/_search/?[offset=$offset&size=$size&aggregate=$aggregate]
-router.add_api_route("/opportunities/_search/{offset}/{size}/{aggregate}",
+router.add_api_route("/opportunities/_search/",
   OpportunityResource.search_opportunities_by_filters,
   methods=['POST'],
   name="Search for jobs in general",

@@ -1,5 +1,7 @@
 from starlette.endpoints import HTTPEndpoint
 import requests
+from fastapi import Depends
+from schemas import filters
 
 class OpportunityResource(HTTPEndpoint):
   @staticmethod
@@ -24,7 +26,7 @@ class OpportunityResource(HTTPEndpoint):
       print("An exception occurred")
 
   @staticmethod
-  async def search_opportunities_by_filters(offset: str, size: str, aggregate: str):
+  async def search_opportunities_by_filters(params: filters.FiltersValidate = Depends()):
     """
       *Description: Search for jobs in general
       *Method: POST
@@ -38,6 +40,10 @@ class OpportunityResource(HTTPEndpoint):
         sttus 500, Error en el servidor
     """
     try:
+      offset = params.offset
+      size = params.size
+      aggregate = params.aggregate
+      
       headers= {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
