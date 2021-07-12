@@ -114,7 +114,8 @@ class OpportunityResource(HTTPEndpoint):
                       jobsFounded.append(job)
                   if(founded):
                     break
-
-      return jobsFounded
+      probablyOpportunities = {}
+      probablyOpportunities["probablyOpportunities"] = jobsFounded
+      return probablyOpportunities
     except:
       print("An exception occurred")
