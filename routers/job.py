@@ -32,7 +32,7 @@ router.add_api_route("/opportunities/_search/",
 router.add_api_route("/opportunities/_search/genome/{username}",
   OpportunityResource.search_opportunities_by_skills,
   methods=['GET'],
-  name="Search for jobs in general",
-  description="<strong>Search for jobs in general</strong>",
+  name="Search 20 jobs according to your skills",
+  description="<strong>Search 20 jobs according to your skills</strong>",
   tags=["job"]
 )
